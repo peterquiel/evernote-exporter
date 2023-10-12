@@ -95,7 +95,7 @@ class EvernoteClient(private val noteStoreClient: NoteStoreClient) {
                     note.attributes.latitude,
                     note.attributes.longitude,
                     note.attributes.altitude,
-                    note.attributes.author,
+                    note.attributes.author ?: "",
                     note.attributes.contentClass,
                     note.attributes.source,
                     note.attributes.sourceURL,

@@ -48,7 +48,9 @@ data class EnexNoteAttributes(
         if (altitude != 0.0) {
             writer.writeText("altitude", altitude.toString())
         }
-        writer.writeText("author", author)
+        if (author.isNotEmpty()) {
+            writer.writeText("author", author)
+        }
         writer.closeTag()
     }
 
