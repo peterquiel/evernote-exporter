@@ -42,7 +42,25 @@ java -jar evernote-exporter-VERSION.jar --help
 Output:
 [source, bash]
 ----
-
+Usage: Evernote Exporter [-hv] -t [-d=<localDirectory>] [-es=<evernoteService>]
+                         [-n=<notebooks>]... [-s=<stacks>]... [@<filename>...]
+      [@<filename>...]    One or more argument files containing options.
+  -d, --directory=<localDirectory>
+                          Local directory to write ENEX files to. Default is
+                            current working directory
+      -es, --evernote-service=<evernoteService>
+                          Evernote service to use. Default is PRODUCTION;
+                            possible values: PRODUCTION, SANDBOX, YINXIANG
+  -h, --help              display this help message
+  -n, --notebooks=<notebooks>
+                          A list of notebook names that should be exported. If
+                            empty every notebook will be exported.
+  -s, --stacks=<stacks>   A list of Evernote stack names that should be
+                            exported. If empty stack will be exported.
+  -t, --token             Evernote access token; read readme in order to know
+                            how to extract the token from web client login
+                            process
+  -v, --version           print version information and exit
 ----
 
 ### Token
