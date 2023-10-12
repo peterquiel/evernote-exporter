@@ -73,6 +73,8 @@ and it looks like they ain't gone do it for a small client side application like
 Therefore, you need to extract an authorization token from your Evernote Cookie.
 Read the following section and learn how to do it.
 
+<<access_token, Read the Acquire Evernote Access Token section>>
+
 ### Multiple Parameters
 
 The programm accepts `-n` or `--notebooks` and `-s` or `--stacks` parameters and one of these is required
@@ -120,6 +122,7 @@ java -jar evernote-exporter-VERSION.jar @path/to/option/file_one @path/to/option
 ----
 
 ## Acquire Evernote Access Token
+[[access_token]]
 
 The authorization token is the most important parameters and grants access to
 the Evernote API and your Evernote Notes.
