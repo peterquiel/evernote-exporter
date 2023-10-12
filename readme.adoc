@@ -1,8 +1,16 @@
-# Evernote Rsync
+# Evernote ENEX Exporter
 
-A simple java based programm to export all Evernote note into ENEX files preserving
-the stack and notebook structure.
+A simple java based programm to sync Evernote Attachments
+with your local file system.
 
+I wrote this programm to mirgate from Evernote to Obsidan. Obsidian offers an ENEX file importer and
+there are other tools to convert ENEX files to Mardown or other formats.
+
+The problem is that Evernote client only exports a 100 notes at once and that the stack and notebook structure
+isn't presevert.
+
+This exporter creates a new ENEX file for every notebook named after then notebook and places in folder named
+by the stack.
 
 [IMPORTANT]
 .Disclaimer
