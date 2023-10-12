@@ -121,8 +121,9 @@ You can simple do that by copying your parameters into the file and using these 
 java -jar evernote-exporter-VERSION.jar @path/to/option/file_one @path/to/option/file_two
 ----
 
-## Acquire Evernote Access Token
 [[access_token]]
+## Acquire Evernote Access Token
+
 
 The authorization token is the most important parameters and grants access to
 the Evernote API and your Evernote Notes.
