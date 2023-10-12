@@ -6,8 +6,10 @@ with your local file system.
 I wrote this programm to mirgate from Evernote to Obsidan. Obsidian offers an ENEX file importer and
 there are other tools to convert ENEX files to Mardown or other formats.
 
+See: https://help.obsidian.md/import/evernote[]
+
 The problem is that Evernote client only exports a 100 notes at once and that the stack and notebook structure
-isn't presevert.
+isn't preserved.
 
 This exporter creates a new ENEX file for every notebook named after then notebook and places in folder named
 by the stack.
