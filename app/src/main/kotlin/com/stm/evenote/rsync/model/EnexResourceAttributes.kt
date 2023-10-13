@@ -13,7 +13,11 @@ class EnexResourceAttributes(
 
     fun writeXml(writer: SimpleXmlWriter) {
         writer.openTag("resource-attributes")
-        writer.writeText("file-name", fileName)
+        if (this.fileName.isNotBlank()) {
+            writer.writeText("file-name", fileName)
+        } else {
+            writer.writeText("file-name", "file")
+        }
         if (sourceURL.isNotBlank()) {
             writer.writeText("source-url", sourceURL)
         }

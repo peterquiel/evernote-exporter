@@ -121,7 +121,7 @@ class EvernoteClient(private val noteStoreClient: NoteStoreClient) {
             resource.width.toInt(),
             resource.height.toInt(),
             EnexResourceAttributes(
-                resource.attributes.fileName,
+                resource.attributes.fileName ?: "",
                 resource.attributes.sourceURL ?: "",
                 resource.attributes.latitude,
                 resource.attributes.longitude,
