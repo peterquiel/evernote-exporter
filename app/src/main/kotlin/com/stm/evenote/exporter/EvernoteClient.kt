@@ -1,11 +1,11 @@
-package com.stm.evenote.rsync
+package com.stm.evenote.exporter
 
 import com.evernote.clients.NoteStoreClient
 import com.evernote.edam.notestore.NoteFilter
 import com.evernote.edam.type.Note
 import com.evernote.edam.type.Notebook
 import com.evernote.edam.type.Resource
-import com.stm.evenote.rsync.model.*
+import com.stm.evenote.exporter.model.*
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -29,16 +29,16 @@ class EvernoteClient(private val noteStoreClient: NoteStoreClient) {
         }
     }
 
-    fun filterForNotebooks(notebookNames : List<String?>): EvernoteClient {
-        if (notebookNames.isNotEmpty()){
-            notebooks.removeIf{!notebookNames.contains(it.name)}
+    fun filterForNotebooks(notebookNames: List<String?>): EvernoteClient {
+        if (notebookNames.isNotEmpty()) {
+            notebooks.removeIf { !notebookNames.contains(it.name) }
         }
         return this
     }
 
-    fun filterForStacknames(stacks : List<String?>): EvernoteClient {
+    fun filterForStacknames(stacks: List<String?>): EvernoteClient {
         if (stacks.isNotEmpty()) {
-            notebooks.removeIf{!stacks.contains(it.stack)}
+            notebooks.removeIf { !stacks.contains(it.stack) }
         }
         return this
     }
@@ -60,11 +60,13 @@ class EvernoteClient(private val noteStoreClient: NoteStoreClient) {
 
             println("Found ${notebooks.size} notebooks in stack '${stack ?: ""}'. Export will be saved in directory '${folder.absolutePath}'")
             for (notebook in notebooks) {
-                counter ++
+                counter++
                 println("Exporting notebook (${counter} of ${this.notebooks.size}): '${notebook.name}' ")
                 val enexFile = "${folder.absolutePath}/${notebook.name.replace("/", "_")}.enex"
-                var writer = SimpleXmlWriter(BufferedWriter(FileWriter(enexFile)),
-                    true)
+                var writer = SimpleXmlWriter(
+                    BufferedWriter(FileWriter(enexFile)),
+                    true
+                )
                 var enexExport = EnexFile(writer)
 
                 export(notebook, enexExport)
@@ -80,7 +82,7 @@ class EvernoteClient(private val noteStoreClient: NoteStoreClient) {
         println("Found ${notes.size} notes to export in notebook '${notebook.name}'")
         var counter = 0
         for (note in notes) {
-            counter ++
+            counter++
             val tags = noteStoreClient.getNoteTagNames(note.guid)
             println("Exporting note (${counter} of ${notes.size}): '${note.title}' in notebook '${notebook.name}' ")
             val content = noteStoreClient.getNoteContent(note.guid)
@@ -105,7 +107,7 @@ class EvernoteClient(private val noteStoreClient: NoteStoreClient) {
                     note.attributes.reminderOrder,
 
                     ),
-                (note.resources?: Collections.emptyList()).filterNotNull().stream()
+                (note.resources ?: Collections.emptyList()).filterNotNull().stream()
                     .map { it!! }
                     .map { toEnexResource(it) }
                     .toList()
@@ -114,7 +116,7 @@ class EvernoteClient(private val noteStoreClient: NoteStoreClient) {
         }
     }
 
-    private fun toEnexResource(resource: Resource) : EnexResource {
+    private fun toEnexResource(resource: Resource): EnexResource {
         return EnexResource(
             loadBinaryDataFrom(resource.guid),
             resource.mime,

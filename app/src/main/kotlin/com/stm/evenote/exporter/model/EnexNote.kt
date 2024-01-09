@@ -1,7 +1,6 @@
-package com.stm.evenote.rsync.model
+package com.stm.evenote.exporter.model
 
-import com.stm.evenote.rsync.SimpleXmlWriter
-import java.util.*
+import com.stm.evenote.exporter.SimpleXmlWriter
 
 data class EnexNote(
     val title: String,
@@ -24,7 +23,7 @@ data class EnexNote(
         writer.writeText("created", createdDate.toString())
         writer.writeText("updated", updatedDate.toString())
         if (tags != null) {
-            for (tag in tags!!) {
+            for (tag in tags) {
                 writer.writeText("tag", tag)
             }
         }

@@ -1,10 +1,9 @@
-package com.stm.evenote.rsync
+package com.stm.evenote.exporter
 
 import com.evernote.auth.EvernoteAuth
 import com.evernote.auth.EvernoteService
 import com.evernote.clients.ClientFactory
 import com.evernote.clients.NoteStoreClient
-import org.slf4j.LoggerFactory
 import picocli.CommandLine
 import java.nio.file.Paths
 import java.util.concurrent.Callable
@@ -14,7 +13,7 @@ import kotlin.system.exitProcess
     name = "Evernote Exporter",
     mixinStandardHelpOptions = true,
     showAtFileInUsageHelp = true,
-    version = ["Evernote Exporter Version: 0.9"]
+    version = ["Evernote Exporter Version: 1.0"]
 )
 class EvernoteExporter : Callable<Int> {
     @CommandLine.Option(
@@ -82,7 +81,6 @@ class EvernoteExporter : Callable<Int> {
             println("Could not connect to evernote with probably invalid token: '${token}'.")
             e.printStackTrace()
             exitProcess(1)
-            null
         }
     }
 

@@ -1,4 +1,4 @@
-package com.stm.evenote.rsync.model
+package com.stm.evenote.exporter.model
 
 import java.text.SimpleDateFormat
 import java.util.*

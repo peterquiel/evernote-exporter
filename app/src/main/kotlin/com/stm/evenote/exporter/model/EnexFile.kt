@@ -1,6 +1,6 @@
-package com.stm.evenote.rsync.model
+package com.stm.evenote.exporter.model
 
-import com.stm.evenote.rsync.SimpleXmlWriter
+import com.stm.evenote.exporter.SimpleXmlWriter
 
 class EnexFile(val writer: SimpleXmlWriter) {
 

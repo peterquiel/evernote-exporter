@@ -1,6 +1,6 @@
-package com.stm.evenote.rsync.model
+package com.stm.evenote.exporter.model
 
-import com.stm.evenote.rsync.SimpleXmlWriter
+import com.stm.evenote.exporter.SimpleXmlWriter
 import java.util.Base64
 
 class EnexResource(val data: ByteArray, val mime: String, val width: Int, val height: Int, val resourceAttributes:
